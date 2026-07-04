@@ -1,0 +1,26 @@
+{
+  "name": "the-pauli-effect-2026",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 3000",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --max-warnings=0",
+    "test": "node tests/copy-and-survey.test.mjs"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "latest",
+    "gsap": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "tailwindcss": "latest"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest"
+  }
+}
