@@ -165,7 +165,7 @@ export function InsiderGate() {
         Early members get ownership updates, grant-scout notes, character drops,
         and behind-the-scenes system maps.
       </p>
-      <form className="insider-form" action="mailto:hello@thepaulieffect.com" method="post">
+      <form className="insider-form" action="/api/insider" method="post">
         <label htmlFor="email">Email</label>
         <input id="email" name="email" type="email" placeholder="you@example.com" required />
         <button className="button primary" type="submit">Request access</button>

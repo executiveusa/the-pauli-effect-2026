@@ -79,16 +79,19 @@ export const routes = {
 
 export function routeSurvey(answers) {
   const funded = ["grants", "sales", "donations", "mix"].includes(answers.funding)
+  const wantsMascot = answers.mascot === "yes" || answers.mascot === "maybe"
+  const grantPressure = answers.hours === "grant-writing" || answers.funding === "grants"
+  const operationsPressure = ["operations", "compliance", "donor-comms"].includes(answers.hours)
 
-  if (answers.organization === "nonprofit" && answers.funding === "grants") {
+  if (answers.organization === "nonprofit" && grantPressure) {
     return routes.grant
   }
 
-  if (funded && answers.technical === "managed") {
+  if (funded && (answers.technical === "managed" || operationsPressure)) {
     return routes.steward
   }
 
-  if (funded && answers.technical === "self-run") {
+  if (funded && answers.technical === "self-run" && wantsMascot) {
     return routes.build
   }
 

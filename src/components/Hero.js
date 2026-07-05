@@ -11,7 +11,7 @@ export default function Hero() {
         </a>
         <nav className="language-toggle" aria-label="Language options">
           {languageCodes.map((code) => (
-            <a key={code} href={`#${code.toLowerCase()}`}>
+            <a id={code.toLowerCase()} key={code} href={`#${code.toLowerCase()}`}>
               {code}
             </a>
           ))}

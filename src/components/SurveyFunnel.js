@@ -7,9 +7,10 @@ export default function SurveyFunnel() {
   const [step, setStep] = useState(0)
   const [answers, setAnswers] = useState({})
   const current = surveyQuestions[step]
-  const complete = Object.keys(answers).length === surveyQuestions.length
+  const answeredCount = Object.keys(answers).length
+  const complete = answeredCount === surveyQuestions.length
   const result = useMemo(() => (complete ? routeSurvey(answers) : null), [answers, complete])
-  const progress = Math.round(((step + 1) / surveyQuestions.length) * 100)
+  const progress = Math.round((answeredCount / surveyQuestions.length) * 100)
 
   function answerQuestion(value) {
     const nextAnswers = { ...answers, [current.id]: value }

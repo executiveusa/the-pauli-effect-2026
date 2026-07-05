@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Corleone";
+  font-family: Corleone;
   src: url("/assets/fonts/Corleone.ttf") format("truetype");
   font-display: swap;
 }
@@ -72,7 +72,7 @@ input {
   opacity: 0.14;
   background-image: linear-gradient(112deg, transparent 0 46%, rgba(244, 234, 216, 0.22) 49%, transparent 52%);
   background-size: 18px 120px;
-  animation: rainShift 9s linear infinite;
+  animation: rain-shift 9s linear infinite;
 }
 
 .site-nav,
@@ -93,7 +93,7 @@ input {
 }
 
 .brand-mark {
-  font-family: "Corleone", Georgia, serif;
+  font-family: Corleone, Georgia, serif;
   font-size: clamp(2rem, 7vw, 5.4rem);
   line-height: 0.8;
   color: var(--paper);
@@ -549,7 +549,8 @@ summary {
   width: 1px;
   height: 1px;
   overflow: hidden;
-  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .insider-form input {
@@ -581,12 +582,12 @@ summary {
 }
 
 .footer a {
-  font-family: "Corleone", Georgia, serif;
+  font-family: Corleone, Georgia, serif;
   color: var(--paper);
   font-size: 2.2rem;
 }
 
-@keyframes rainShift {
+@keyframes rain-shift {
   to {
     background-position: 0 120px;
   }

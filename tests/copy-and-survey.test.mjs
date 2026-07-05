@@ -1,6 +1,7 @@
 import assert from "node:assert/strict"
 import { readdir, readFile } from "node:fs/promises"
 import path from "node:path"
+import { fileURLToPath } from "node:url"
 import { painPoints } from "../src/lib/copy.js"
 import { routeSurvey, routes, surveyQuestions } from "../src/lib/survey.js"
 
@@ -23,19 +24,19 @@ assert.equal(surveyQuestions.length, 5)
 assert.equal(painPoints.length, 6)
 
 assert.equal(
-  routeSurvey({ organization: "nonprofit", funding: "grants", technical: "managed" }),
+  routeSurvey({ organization: "nonprofit", funding: "sales", hours: "grant-writing", mascot: "no", technical: "managed" }),
   routes.grant,
 )
 assert.equal(
-  routeSurvey({ organization: "social-purpose", funding: "sales", technical: "managed" }),
+  routeSurvey({ organization: "social-purpose", funding: "sales", hours: "operations", mascot: "yes", technical: "self-run" }),
   routes.steward,
 )
 assert.equal(
-  routeSurvey({ organization: "other", funding: "mix", technical: "self-run" }),
+  routeSurvey({ organization: "other", funding: "mix", hours: "content", mascot: "yes", technical: "self-run" }),
   routes.build,
 )
 assert.equal(
-  routeSurvey({ organization: "individual", funding: "none", technical: "not-technical" }),
+  routeSurvey({ organization: "individual", funding: "sales", hours: "content", mascot: "no", technical: "self-run" }),
   routes.insider,
 )
 
@@ -50,7 +51,8 @@ async function collectFiles(dir) {
   return files.flat()
 }
 
-const sourceFiles = (await collectFiles(path.join(process.cwd(), "src"))).filter((file) =>
+const srcDir = fileURLToPath(new URL("../src", import.meta.url))
+const sourceFiles = (await collectFiles(srcDir)).filter((file) =>
   /\.(js|css)$/.test(file),
 )
 

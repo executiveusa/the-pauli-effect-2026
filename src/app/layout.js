@@ -2,6 +2,7 @@ import "./globals.css"
 
 export const metadata = {
   title: "The Pauli Effect | Proudly Artificial",
+  metadataBase: new URL("https://thepaulieffect.com"),
   description:
     "A social-purpose AI studio for owned mascots, grant-assist systems, and durable agent infrastructure.",
   openGraph: {
