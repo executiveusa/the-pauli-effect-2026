@@ -3,7 +3,7 @@ import { faqs, painPoints } from "../lib/copy"
 export function PainPoints() {
   return (
     <section className="section pain" aria-labelledby="pain-title">
-      <div className="section-head">
+      <div className="section-head" data-reveal>
         <p className="kicker">Problem</p>
         <h2 id="pain-title">The old stack keeps taking pieces of you.</h2>
         <p>
@@ -11,7 +11,7 @@ export function PainPoints() {
           that can speak, remember, draft, and hand the work back.
         </p>
       </div>
-      <div className="pain-grid">
+      <div className="pain-grid" data-stagger>
         {painPoints.map((item, index) => (
           <article className="pain-card" key={item.title}>
             <span>{String(index + 1).padStart(2, "0")}</span>
@@ -34,11 +34,11 @@ export function OldWayPauliWay() {
 
   return (
     <section className="section split" aria-labelledby="way-title">
-      <div className="section-head">
+      <div className="section-head" data-reveal>
         <p className="kicker">Amplification</p>
         <h2 id="way-title">The old way rents access. Pauli leaves the keys.</h2>
       </div>
-      <div className="compare-table">
+      <div className="compare-table" data-stagger>
         <div className="compare-head old">Old way</div>
         <div className="compare-head new">Pauli way</div>
         {rows.map(([oldWay, pauliWay]) => (
@@ -56,7 +56,7 @@ export function MascotFlywheel() {
   const steps = ["AI avatar", "Artist character", "Copyright package", "Merch and media", "Brand gravity"]
   return (
     <section className="section flywheel" aria-labelledby="flywheel-title">
-      <div className="section-head">
+      <div className="section-head" data-reveal>
         <p className="kicker">Solution</p>
         <h2 id="flywheel-title">The mascot becomes the operating system.</h2>
         <p>
@@ -64,7 +64,7 @@ export function MascotFlywheel() {
           memory trail, and a reason people remember the work.
         </p>
       </div>
-      <ol className="flywheel-list">
+      <ol className="flywheel-list" data-stagger>
         {steps.map((step) => (
           <li key={step}>{step}</li>
         ))}
@@ -83,11 +83,11 @@ export function CharacterGallery() {
 
   return (
     <section id="characters" className="section gallery" aria-labelledby="gallery-title">
-      <div className="section-head">
+      <div className="section-head" data-reveal>
         <p className="kicker">Yappyverse</p>
         <h2 id="gallery-title">A character system, not a mascot dump.</h2>
       </div>
-      <div className="gallery-grid">
+      <div className="gallery-grid" data-stagger>
         {characters.map(([name, text], index) => (
           <article className={index === 0 ? "character-card featured" : "character-card"} key={name}>
             <p>Issue {String(index + 1).padStart(2, "0")}</p>
@@ -104,7 +104,7 @@ export function OwnershipExplainer() {
   const items = ["The code", "The mascot direction", "The data path", "The operating docs"]
   return (
     <section className="section ownership" aria-labelledby="ownership-title">
-      <div className="section-head">
+      <div className="section-head" data-reveal>
         <p className="kicker">System</p>
         <h2 id="ownership-title">You buy it once. You own what ships.</h2>
         <p>
@@ -112,7 +112,7 @@ export function OwnershipExplainer() {
           handoff you can inspect.
         </p>
       </div>
-      <div className="ownership-list">
+      <div className="ownership-list" data-stagger>
         {items.map((item) => (
           <span key={item}>{item}</span>
         ))}
@@ -124,7 +124,7 @@ export function OwnershipExplainer() {
 export function ProofSection() {
   return (
     <section id="proof" className="section proof" aria-labelledby="proof-title">
-      <div className="proof-panel">
+      <div className="proof-panel" data-reveal>
         <p className="kicker">Portfolio proof</p>
         <h2 id="proof-title">NWKids is framed as proof, not a fake case study.</h2>
         <p>
@@ -140,11 +140,11 @@ export function ProofSection() {
 export function FAQ() {
   return (
     <section className="section faq" aria-labelledby="faq-title">
-      <div className="section-head">
+      <div className="section-head" data-reveal>
         <p className="kicker">Skeptic desk</p>
         <h2 id="faq-title">Questions Pauli should answer plainly.</h2>
       </div>
-      <div className="faq-list">
+      <div className="faq-list" data-stagger>
         {faqs.map((item) => (
           <details key={item.question}>
             <summary>{item.question}</summary>
@@ -158,7 +158,7 @@ export function FAQ() {
 
 export function InsiderGate() {
   return (
-    <section className="section insider" aria-labelledby="insider-title">
+    <section className="section insider" aria-labelledby="insider-title" data-reveal>
       <p className="kicker">Insider Club</p>
       <h2 id="insider-title">Get the build notes before the mascot gets loud.</h2>
       <p>
@@ -176,7 +176,7 @@ export function InsiderGate() {
 
 export function BlogTeaser() {
   return (
-    <section className="section blog" aria-labelledby="blog-title">
+    <section className="section blog" aria-labelledby="blog-title" data-reveal>
       <div>
         <p className="kicker">Free blog teaser</p>
         <h2 id="blog-title">The first notes will teach ownership in public.</h2>

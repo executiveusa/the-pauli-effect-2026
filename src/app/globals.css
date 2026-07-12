@@ -668,3 +668,124 @@ summary {
     border-right: 0;
   }
 }
+
+/* ===== CINEMATIC SCROLL ENHANCEMENTS ===== */
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brass), #d4af5e);
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(196, 154, 77, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(196, 154, 77, 0.5);
+}
+
+/* Section transitions — subtle separators */
+.section {
+  position: relative;
+}
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, var(--line), transparent);
+}
+
+/* Hero rain effect enhancement */
+.rain {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.4;
+  background: radial-gradient(ellipse at 50% 0%, rgba(196, 154, 77, 0.08), transparent 60%);
+}
+
+/* Hero image glow */
+.art-card {
+  position: relative;
+}
+.art-card::after {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(ellipse, rgba(196, 154, 77, 0.12), transparent 70%);
+  z-index: -1;
+  filter: blur(20px);
+}
+
+/* Button hover enhancement */
+.button.primary {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(196, 154, 77, 0.3);
+}
+
+/* Pain card hover */
+.pain-card {
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.pain-card:hover {
+  border-color: rgba(196, 154, 77, 0.4);
+  transform: translateY(-4px);
+}
+
+/* Character card hover */
+.character-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.character-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* FAQ smooth expand */
+details summary {
+  cursor: pointer;
+  list-style: none;
+  transition: color 0.2s ease;
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+details summary:hover {
+  color: var(--brass);
+}
+details[open] summary {
+  color: var(--brass);
+}
+
+/* Reduced motion guard */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .scroll-progress {
+    display: none;
+  }
+}

@@ -1,4 +1,5 @@
 import "./globals.css"
+import CinematicScroll from "../components/CinematicScroll"
 
 export const metadata = {
   title: "The Pauli Effect | Proudly Artificial",
@@ -16,7 +17,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <CinematicScroll>{children}</CinematicScroll>
+      </body>
     </html>
   )
 }

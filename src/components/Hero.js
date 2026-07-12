@@ -20,16 +20,16 @@ export default function Hero() {
 
       <div className="hero-grid">
         <div className="hero-copy">
-          <p className="kicker">Proudly Artificial</p>
-          <h1 id="hero-title">The Pauli Effect</h1>
-          <p className="hero-line">
+          <p className="kicker" data-hero-reveal>Proudly Artificial</p>
+          <h1 id="hero-title" data-hero-reveal>The Pauli Effect</h1>
+          <p className="hero-line" data-hero-reveal>
             Buy the mascot, the code, the data path, and the agent system once.
           </p>
-          <p className="hero-support">
+          <p className="hero-support" data-hero-reveal>
             Pauli helps social-purpose teams turn mascot IP into useful AI
             infrastructure without hiding the keys.
           </p>
-          <div className="hero-actions" aria-label="Primary actions">
+          <div className="hero-actions" aria-label="Primary actions" data-hero-reveal>
             <a className="button primary" href="#survey">
               See your route
             </a>
@@ -42,8 +42,8 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="pauli-stage" aria-label="Pauli mascot artwork">
-          <div className="art-card">
+        <div className="pauli-stage" aria-label="Pauli mascot artwork" data-parallax="0.08">
+          <div className="art-card" data-hero-image>
             <Image
               src="/assets/pauli/pauli-reference-primary.webp"
               alt="Pauli, the black and white mascot holding a phone"
