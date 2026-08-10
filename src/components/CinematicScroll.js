@@ -157,6 +157,29 @@ export default function CinematicScroll({ children }) {
       })
     }
 
+    // Custom cursor — follows mouse, grows on hoverable elements
+    const cursor = document.querySelector(".cursor")
+    if (cursor && window.matchMedia("(pointer: fine)").matches) {
+      const moveCursor = (e) => {
+        cursor.style.left = `${e.clientX}px`
+        cursor.style.top = `${e.clientY}px`
+      }
+      const addHover = () => cursor.classList.add("hover")
+      const removeHover = () => cursor.classList.remove("hover")
+      window.addEventListener("mousemove", moveCursor)
+      document.querySelectorAll("a, button, .work-card").forEach((el) => {
+        el.addEventListener("mouseenter", addHover)
+        el.addEventListener("mouseleave", removeHover)
+      })
+      return () => {
+        window.removeEventListener("mousemove", moveCursor)
+        document.querySelectorAll("a, button, .work-card").forEach((el) => {
+          el.removeEventListener("mouseenter", addHover)
+          el.removeEventListener("mouseleave", removeHover)
+        })
+      }
+    }
+
     return () => {
       clearTimeout(refreshTimer)
       lenis.destroy()
